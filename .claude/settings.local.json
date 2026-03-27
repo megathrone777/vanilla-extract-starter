@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(npx eslint --print-config src/main.tsx)"
-    ]
-  }
-}

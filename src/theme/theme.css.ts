@@ -1,10 +1,10 @@
 import { createTheme } from "@vanilla-extract/css";
 
+import { colors, fonts } from "./variables";
+
 const [themeClass, vars] = createTheme({
-  color: {
-    primary: "yellowgreen",
-    primary100: "yellow",
-  },
+  colors,
+  fonts,
 });
 
 export { themeClass, vars };

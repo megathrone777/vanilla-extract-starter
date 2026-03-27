@@ -3,21 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta
-      content="initial-scale=1.0, viewport-fit=cover, width=device-width"
+      content="initial-scale=1.0, interactive-widget=resizes-content, maximum-scale=1.0, viewport-fit=cover, width=device-width"
       name="viewport"
     >
-    <title>Installation</title>
+    <title>Starter</title>
 		<style>
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
       @font-face {
         font-display: block;
         font-family: "Inter";
@@ -46,47 +36,23 @@
         src: url("/fonts/Inter-Bold.woff2") format("woff2");
       }
 
-      html, body, #root {
-        min-height: 100dvh;
-        width: 100%;
-      }
-
       body {
-        margin: 0;
-      }
-
-      .spinner {
-        animation: rotate .5s linear infinite;
-        color: #0baac9;
-        height: 40px;
-        inset-inline: 0;
-        margin-inline: auto;
-        position: absolute;
-        transform-origin: center;
-        top: 50%;
-        width: 40px;
-      }
-
-      .spinner-circle {
-        stroke: #0baac9;
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: 0;
+        font: 16px "Inter", sans-serif;
       }
 		</style>
   </head>
 
   <body>
     <div id="root">
-      <svg
-        class="spinner"
-        viewBox="25 25 50 50"
-      >
+      <svg class="spinner" viewBox="25 25 50 50">
         <circle
-          class="spinner-circle"
           cx="50"
           cy="50"
           fill="none"
           r="20"
+          stroke="#0baac9"
+          stroke-dasharray="89 200"
+          stroke-dashoffset="0"
           stroke-miterlimit="10"
           stroke-width="5"
         ></circle>

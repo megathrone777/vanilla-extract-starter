@@ -1,7 +1,6 @@
-import { style } from "@vanilla-extract/css";
+import { css } from "@/theme";
 
-import { vars } from "~/theme";
-
-export const wrapperClass = style({
-  backgroundColor: vars.color.primary,
-});
+export const wrapperClass = css((vars) => ({
+  backgroundColor: vars.colors.primary100,
+  fontWeight: vars.fonts.semiBold,
+}));

@@ -1,5 +1,3 @@
-# bluenodes
-
 ### PREPARATION:
 
 - First you need to have [Node.js](https://nodejs.org/en/download/) and [npm](https://nodejs.org/en/download/) installed.
@@ -36,5 +34,3 @@ yarn build
 ```
 
 The resulting files are then in the `./dist` directory
-
-Please run yarn build before every commit

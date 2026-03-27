@@ -1,11 +1,12 @@
 import React from "react";
 
-import { DeviceScan } from "~/components";
-import { themeClass } from "~/theme";
+import { Header } from "@/components";
+import { themeClass } from "@/theme";
 
 const App: React.FC = () => (
   <div className={themeClass}>
-    <DeviceScan />
+    <Header />
+    <h1>App</h1>
   </div>
 );
 

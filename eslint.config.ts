@@ -5,14 +5,14 @@ import eslintPluginPerfectionist from "eslint-plugin-perfectionist";
 import eslintPluginReactDom from "eslint-plugin-react-dom";
 import eslintPluginReactX from "eslint-plugin-react-x";
 import { defineConfig } from "eslint/config";
-import tsEslint from "typescript-eslint";
+import { configs, parser } from "typescript-eslint";
 
 const config = defineConfig({
-  extends: [tsEslint.configs.recommended],
+  extends: [configs.recommended],
   files: ["src/**/*.{ts,tsx}"],
   ignores: ["./dist/**/*"],
   languageOptions: {
-    parser: tsEslint.parser,
+    parser,
     parserOptions: {
       projectService: true,
       tsconfigRootDir: import.meta.dirname,
@@ -31,7 +31,6 @@ const config = defineConfig({
     "import/named": "off",
     "import/newline-after-import": "error",
     "import/order": "off",
-    indent: ["error", 2],
     "no-multi-spaces": "error",
     "newline-after-var": "error",
     "newline-before-return": "error",
@@ -54,6 +53,18 @@ const config = defineConfig({
     "prefer-const": "error",
     quotes: "error",
     semi: "error",
+    "@stylistic/indent": [
+      "error",
+      2,
+      {
+        offsetTernaryExpressions: true,
+        ignoredNodes: [
+          "JSXExpressionContainer > ConditionalExpression",
+          "JSXExpressionContainer > LogicalExpression",
+          "TemplateLiteral *",
+        ],
+      },
+    ],
     "@stylistic/jsx-closing-bracket-location": "error",
     "@stylistic/jsx-closing-tag-location": "error",
     "@stylistic/jsx-curly-brace-presence": "error",
@@ -63,6 +74,7 @@ const config = defineConfig({
     "@stylistic/jsx-indent-props": ["error", { indentMode: 2 }],
     "@stylistic/jsx-max-props-per-line": ["error", { maximum: 2 }],
     "@stylistic/jsx-tag-spacing": "error",
+    "@stylistic/quotes": ["error", "double"],
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/no-explicit-any": "error",
@@ -86,6 +98,10 @@ const config = defineConfig({
             groupName: "react",
             elementNamePattern: ["^react$", "^react-.*"],
           },
+          {
+            groupName: "internal-alias",
+            elementNamePattern: ["^@/.+"],
+          },
         ],
         groups: [
           "side-effect",
@@ -96,7 +112,7 @@ const config = defineConfig({
           { newlinesBetween: 0 },
           "external",
           { newlinesBetween: 1 },
-          "internal",
+          "internal-alias",
           { newlinesBetween: 1 },
 
           "parent",
@@ -123,7 +139,7 @@ const config = defineConfig({
           "type-import",
           { newlinesBetween: 1 },
         ],
-        internalPattern: ["^~/.+"],
+        internalPattern: ["^@/.+"],
         newlinesBetween: 1,
         order: "asc",
         type: "natural",
@@ -148,7 +164,7 @@ const config = defineConfig({
     "react-x/no-context-provider": "error",
     "react-x/no-duplicate-key": "error",
     "react-x/no-missing-key": "error",
-  },
+  }
 });
 
 export default config;
